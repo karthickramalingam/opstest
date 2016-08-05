@@ -1,0 +1,276 @@
+<PARAMS>
+
+    <testcases>21</testcases>
+
+        <CASE1>             
+            <asnum1> 64700 </asnum1>
+            <routerID>bgp router-id 10.0.20.0</routerID>
+            <neighbor_1_asnum1> neighbor 10.0.20.1 remote-as 64850 </neighbor_1_asnum1>           
+            <advertise> redistribute connected </advertise>
+    	</CASE1>
+ 
+        <CASE2>
+            <asnum1> 64700 </asnum1>
+            <routerID1>bgp router-id 10.0.20.0</routerID1>
+            <neighbor_1_asnum1> neighbor 10.0.20.1 remote-as 64850 </neighbor_1_asnum1>           
+            <advertise1> redistribute connected </advertise1>
+            
+            <asnum2> 64850 </asnum2>
+            <routerID2>bgp router-id 10.0.20.1</routerID2>
+            <neighbor_1_asnum2> neighbor 10.0.20.0 remote-as 64700 </neighbor_1_asnum2>
+            <neighbor_2_asnum2> neighbor 10.0.4.1 remote-as 64900 </neighbor_2_asnum2>
+            <advertise2> redistribute connected </advertise2>
+
+            <asnum3> 64900 </asnum3>
+            <routerID3>bgp router-id 10.0.4.1</routerID3>
+            <neighbor_1_asnum3> neighbor 10.0.4.0 remote-as 64850 </neighbor_1_asnum3>
+            <advertise3> redistribute connected </advertise3>
+	</CASE2>
+	
+        <CASE3> 
+        	<step1>     
+            		<asnum> 64700 </asnum>
+                        <routerID1>bgp router-id 10.0.20.0</routerID1>
+            		<remoteAsNum> 64850 </remoteAsNum>
+            		<loopbackInterface> loopback 1 </loopbackInterface>
+            		<loIP> 1.1.1.1/32 </loIP>
+            		<peerloIP> 2.2.2.2 </peerloIP>
+            		<dstNetwork> 2.2.2.2/32 </dstNetwork>
+            		<nextHopIP> 10.0.20.1 </nextHopIP>
+        	</step1>
+
+        	<step2>     
+            		<asnum> 64850 </asnum>
+                        <routerID2>bgp router-id 10.0.20.1</routerID2>
+            		<remoteAsNum> 64700 </remoteAsNum>
+            		<loopbackInterface> loopback 1 </loopbackInterface>
+            		<loIP> 2.2.2.2/32 </loIP>
+            		<peerloIP> 1.1.1.1 </peerloIP>
+            		<dstNetwork> 1.1.1.1/32 </dstNetwork>           
+            		<nextHopIP> 10.0.20.0 </nextHopIP>
+        	</step2> 
+             
+    	</CASE3>
+    
+	<CASE4> 
+        	<step1>     
+            		<asnum> 64700 </asnum>
+                        <routerID1>bgp router-id 10.0.20.0</routerID1>
+            		<password> PAX1 </password>
+            		<remoteAsNum> 64850 </remoteAsNum>
+            		<nextHopIP> 10.0.20.1 </nextHopIP>
+            		<AdvNetwork> 10.0.20.0/31 </AdvNetwork>
+        	</step1>
+
+        	<step2>     
+            		<asnum> 64850 </asnum>
+                        <routerID2>bgp router-id 10.0.20.1</routerID2>
+            		<password> PAX1 </password>
+            		<remoteAsNum> 64700 </remoteAsNum>
+            		<nextHopIP> 10.0.20.0 </nextHopIP>
+            		<AdvNetwork> 10.0.20.0/31 </AdvNetwork>
+        	</step2> 
+             
+	</CASE4>
+
+	<CASE5> 
+        	<step1>     
+            		<asnum> 64700 </asnum>
+                        <routerID1>bgp router-id 10.0.20.0</routerID1>
+            		<groupName> PAX1 </groupName>
+            		<remoteAsNum> 64850 </remoteAsNum>
+            		<nextHopIP> 10.0.20.1 </nextHopIP>
+            		<AdvNetwork> 10.0.20.0/31 </AdvNetwork>
+        	</step1>
+
+        	<step2>     
+            		<asnum> 64850 </asnum>
+                        <routerID2>bgp router-id 10.0.20.1</routerID2>
+            		<groupName> PAX2 </groupName>
+            		<remoteAsNum> 64700 </remoteAsNum>
+            		<nextHopIP> 10.0.20.0 </nextHopIP>
+            		<AdvNetwork> 10.0.20.0/31 </AdvNetwork>
+        	</step2> 
+             
+    	</CASE5>
+   
+        <CASE7> 
+
+       		<asnum1> 64700 </asnum1>
+                <routerID1>bgp router-id 10.0.20.0</routerID1>
+            	<neighbor_1_asnum1> neighbor 10.0.20.1 remote-as 64850 </neighbor_1_asnum1>                
+            	<advertise> redistribute connected </advertise>
+            
+            	<asnum2> 64850 </asnum2>
+                <routerID2>bgp router-id 10.0.20.1</routerID2>
+            	<neighbor_1_asnum2> neighbor 10.0.20.0 remote-as 64700 </neighbor_1_asnum2>
+                <advertise> redistribute connected </advertise>
+
+        	<asnum> 64700 </asnum>
+        	<nextHopIP> 10.0.20.1 </nextHopIP>
+        	<state1> down </state1>
+        	<state2> up </state2>
+	</CASE7>
+
+	<CASE8>
+            <asnum1> 64700 </asnum1>
+            <routerID1>bgp router-id 10.0.20.0</routerID1>
+            <neighbor_1_asnum1> neighbor 10.0.20.1 remote-as 64850 </neighbor_1_asnum1>           
+            <advertise> redistribute connected </advertise>
+            
+            <asnum2> 64850 </asnum2>
+            <routerID2>bgp router-id 10.0.20.1</routerID2>
+            <neighbor_1_asnum2> neighbor 10.0.20.0 remote-as 64700 </neighbor_1_asnum2>
+            <neighbor_2_asnum2> neighbor 10.0.4.1 remote-as 64900 </neighbor_2_asnum2>
+            <advertise> redistribute connected </advertise>
+
+            <asnum3> 64900 </asnum3>
+            <routerID3>bgp router-id 10.0.4.1</routerID3>
+            <neighbor_1_asnum3> neighbor 10.0.4.0 remote-as 64850 </neighbor_1_asnum3>
+            <advertise> redistribute connected </advertise>
+
+            <NetworkIP> 10.0.4.0 </NetworkIP> 
+	</CASE8>
+
+
+        <CASE11>
+            <loopbackInterface1> loopback 1 </loopbackInterface1>
+            <loopbackInterface2> loopback 2 </loopbackInterface2>
+            <loIP1> 1.1.1.1/32 </loIP1>
+            <loIP2> 10.10.10.10/32 </loIP2>
+
+            <prefixListName> ROUTE </prefixListName>
+            <seqno> 10 </seqno>
+            <action> permit </action>
+            <network> 10.10.10.10/32 </network>
+              
+            <routeMapName> ROUTE </routeMapName>
+ 
+            <asnum> 64700 </asnum>
+            <routerID1>bgp router-id 10.0.20.0</routerID1>
+            <neighbor_1_asnum1> neighbor 10.0.20.1 remote-as 64850 </neighbor_1_asnum1>           
+            <advertise> redistribute connected </advertise>
+            <routemap> neighbor 10.0.20.1 route-map ROUTE out </routemap>
+             <prefixlist>  neighbor 10.10.21.2 prefix-list ROUTE out </prefixlist>
+            
+            <asnum2> 64850 </asnum2>
+            <routerID2>bgp router-id 10.0.20.1</routerID2>
+            <filterNetwork> 10.10.10.10/32 </filterNetwork>
+            <neighbor_1_asnum2> neighbor 10.0.20.0 remote-as 64700 </neighbor_1_asnum2>   
+            <advertise> redistribute connected </advertise>          
+    	</CASE11>
+
+	<CASE12> 
+            <loopbackInterface1> loopback 1 </loopbackInterface1>
+            <loopbackInterface2> loopback 2 </loopbackInterface2>
+            <loIP1> 1.1.1.1/32 </loIP1>
+            <loIP2> 10.10.10.10/32 </loIP2>
+
+            <prefixListName> ROUTE </prefixListName>
+            <seqno> 10 </seqno>
+            <action> permit </action>
+            <network> 10.10.10.10/32 </network>
+ 
+            <asnum> 64700 </asnum>
+            <routerID1>bgp router-id 10.0.20.0</routerID1>
+            <neighbor_1_asnum1> neighbor 10.0.20.1 remote-as 64850 </neighbor_1_asnum1>           
+            <advertise> redistribute connected </advertise>
+            <prefixlist>  neighbor 10.0.20.1 prefix-list ROUTE out </prefixlist>
+            
+            <asnum2> 64850 </asnum2>
+            <routerID2>bgp router-id 10.0.20.1</routerID2>
+            <filterNetwork> 10.10.10.10/32 </filterNetwork>
+            <neighbor_1_asnum2> neighbor 10.0.20.0 remote-as 64700 </neighbor_1_asnum2>   
+            <advertise> redistribute connected </advertise>
+    	</CASE12>
+
+	
+        <CASE13> 
+            <loopbackInterface1> loopback 1 </loopbackInterface1>
+            <loopbackInterface2> loopback 2 </loopbackInterface2>
+            <loIP1> 1.1.1.1/32 </loIP1>
+            <loIP2> 2.2.2.2/32</loIP2>
+
+            <loopbackInterface3> loopback 3 </loopbackInterface3>
+            <loopbackInterface4> loopback 4 </loopbackInterface4>
+            <loIP3> 3.3.3.3/32 </loIP3>
+            <loIP4> 4.4.4.4/32 </loIP4>
+
+
+            <asnum1> 64700 </asnum1>
+            <routerID1>bgp router-id 10.0.20.0</routerID1>
+            <neighbor_1_asnum1> neighbor 10.0.20.1 remote-as 64850 </neighbor_1_asnum1>           
+            <advertise> redistribute connected </advertise>
+            
+            <asnum2> 64850 </asnum2>
+            <routerID2>bgp router-id 10.0.20.1</routerID2>
+            <neighbor_1_asnum2> neighbor 10.0.20.0 remote-as 64700 </neighbor_1_asnum2>
+            <neighbor_2_asnum2> neighbor 10.0.4.1 remote-as 64900 </neighbor_2_asnum2>
+            <advertise> redistribute connected </advertise>
+
+            <asnum3> 64900 </asnum3>
+            <routerID3>bgp router-id 10.0.4.1</routerID3>
+            <neighbor_1_asnum3> neighbor 10.0.4.0 remote-as 64850 </neighbor_1_asnum3>
+            <advertise> redistribute connected </advertise>
+            
+            <as_path_accesslist> ip as-path access-list ROUTE deny ^64850$ </as_path_accesslist>
+            <filterlist>  neighbor 10.0.20.1 filter-list ROUTE out </filterlist>
+                         
+    	</CASE13>
+
+	<CASE18>
+	    <loopbackInterface1> loopback 1 </loopbackInterface1>
+            <loopbackInterface2> loopback 2 </loopbackInterface2>
+            <loIP1> 1.1.1.1/32 </loIP1>
+            <loIP2> 2.2.2.2/32</loIP2>
+
+            <loopbackInterface3> loopback 3 </loopbackInterface3>
+            <loopbackInterface4> loopback 4 </loopbackInterface4>
+            <loIP3> 3.3.3.3/32 </loIP3>
+            <loIP4> 4.4.4.4/32 </loIP4>
+
+            <asnum1> 64700 </asnum1>
+            <routerID1>bgp router-id 10.0.20.0</routerID1>
+            <neighbor_1_asnum1> neighbor 10.0.20.1 remote-as 64850 </neighbor_1_asnum1>           
+            <advertise> redistribute connected </advertise>
+            
+            <asnum2> 64850 </asnum2>
+            <routerID2>bgp router-id 10.0.20.1</routerID2>
+            <neighbor_1_asnum2> neighbor 10.0.20.0 remote-as 64700 </neighbor_1_asnum2>
+            <neighbor_2_asnum2> neighbor 10.0.4.1 remote-as 64900 </neighbor_2_asnum2>
+            <advertise> redistribute connected </advertise>
+
+            <asnum3> 64900 </asnum3>
+            <routerID3>bgp router-id 10.0.4.1</routerID3>
+            <neighbor_1_asnum3> neighbor 10.0.4.0 remote-as 64850 </neighbor_1_asnum3>
+            <advertise> redistribute connected </advertise>
+            
+            <NeighborIP> 10.0.4.1 </NeighborIP> 
+            <ASNum> 64700 </ASNum>
+
+    	</CASE18>
+
+	<CASE21> 
+
+	    <asnum1> 64700 </asnum1>
+            <routerID1>bgp router-id 10.0.20.0</routerID1>
+            <neighbor_1_asnum1> neighbor 10.0.20.1 remote-as 64850 </neighbor_1_asnum1>           
+            <advertise> redistribute connected </advertise>
+            
+            <asnum2> 64850 </asnum2>
+            <routerID2>bgp router-id 10.0.20.1</routerID2>
+            <neighbor_1_asnum2> neighbor 10.0.20.0 remote-as 64700 </neighbor_1_asnum2>
+            <neighbor_2_asnum2> neighbor 10.0.4.1 remote-as 64900 </neighbor_2_asnum2>
+            <advertise> redistribute connected </advertise>
+
+            <asnum3> 64900 </asnum3>
+            <routerID3>bgp router-id 10.0.4.1</routerID3>
+            <neighbor_1_asnum3> neighbor 10.0.4.0 remote-as 64850 </neighbor_1_asnum3>
+            <advertise> redistribute connected </advertise>
+    
+            <interface> 5 </interface> 
+            <state1> down </state1>      
+            <state2> up </state2>
+    	</CASE21>
+    
+</PARAMS>      

@@ -1,0 +1,23 @@
+*** Settings ***
+Resource    ./Resources/OpsLibrary.robot
+Suite Setup  Initialize
+Suite Teardown  Close all connections
+*** Variables ***
+
+*** Keywords ***
+
+*** Test Cases ***
+Test Case 1
+#	Execute Command In Host  FAB06  show running-config
+#	Execute Command In Host  FAB07  show hostname
+#	Execute Command In Host  FAB06  show running-config
+#	Execute Command In Host  FAB06  show ip bgp 
+#	Execute Command In Host  FAB06  show ip bgp summary
+	Execute Command In Host  FAB06  show hostname
+	Configure Ip  FAB06  23  192.168.23.23/24  down
+#	Configure Ip  FAB07  23  192.168.23.23/24
+#	Configure Ip  ASW03  23  192.168.23.23/24
+
+Test Case 2
+	Configure Ip  FAB06  24  192.168.23.24/24  down
+	Show Bgp Routes  FAB07  64851
